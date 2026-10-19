@@ -1,0 +1,13 @@
+# Keeps the actions in .github/workflows up to date, including the ones pinned to a commit SHA.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
+    # Offer a new version only a week after its release, so a compromised release has time to be caught.
+    cooldown:
+      default-days: 7
+    groups:
+      actions:
+        patterns: ["*"]

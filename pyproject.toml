@@ -1,0 +1,55 @@
+[project]
+name = "ceps-api"
+version = "0.1.0"
+description = "Unofficial Python client for the ČEPS (Czech TSO) data web service, returning pandas DataFrames."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Frantis3k" }]
+requires-python = ">=3.10"
+dependencies = [
+    "pandas>=2.3",
+    "tzdata; sys_platform == 'win32'",  # IANA tz database for zoneinfo on Windows
+]
+keywords = ["ceps", "electricity", "energy", "czech", "imbalance", "tso"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering",
+    "Intended Audience :: Science/Research",
+    "Typing :: Typed",
+]
+
+[project.urls]
+Homepage = "https://github.com/Frantis3k/ceps-api"
+Issues = "https://github.com/Frantis3k/ceps-api/issues"
+Changelog = "https://github.com/Frantis3k/ceps-api/blob/main/CHANGELOG.md"
+
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.sdist]
+exclude = ["docs/"]
+
+[dependency-groups]
+dev = ["mypy", "pandas-stubs", "pytest", "ruff"]
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+# __all__ in __init__.py is grouped by meaning, not sorted.
+ignore = ["RUF022"]
+
+[tool.pytest.ini_options]
+markers = ["live: calls the real ČEPS service; leave out with -m \"not live\""]
+
+[tool.mypy]
+files = ["src"]
+strict = true

@@ -1,0 +1,42 @@
+# Lint and offline tests on every push to main and every pull request; publish.yml runs them before a release.
+# The live tests are left out, so a ČEPS outage does not fail the build.
+name: tests
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_call:
+
+permissions:
+  contents: read
+
+# A newer commit cancels the run of an older one. The event is part of the group, so a run called
+# from publish.yml and a push run on the same branch do not cancel each other.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+        python-version: ["3.10", "3.12", "3.14"]
+        include:
+          # Windows needs tzdata for zoneinfo; one Python version is enough to cover that.
+          - os: windows-latest
+            python-version: "3.14"
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@1c37ad07a6a961277cf70c0d37d6f313000f5884 # v10.3.0
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: uv sync --locked
+      - run: uv run ruff check .
+      - run: uv run mypy
+      - run: uv run pytest -m "not live"

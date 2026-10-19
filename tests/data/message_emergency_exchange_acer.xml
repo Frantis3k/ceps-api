@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?><soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><soap:Body><EmergencyExchangeACERResponse xmlns="https://www.ceps.cz/CepsData/"><EmergencyExchangeACERResult><root xmlns="https://www.ceps.cz/CepsData/StructuredData/1.0">
+ <messageId xmlns="">2025-02-09T00:00:002025-0_001</messageId>
+  <eventStatus xmlns="">Active</eventStatus>
+  <publicationDate xmlns="">2025-02-10T16:30:00</publicationDate>
+  <eventStart xmlns="">2025-02-09T00:00:00</eventStart>
+  <eventStop xmlns="">2025-02-09T01:00:00</eventStop>
+  <marketParticipant xmlns="">CEPS, a.s</marketParticipant>
+  <marketParticipantCode xmlns="">A00003291.CZ</marketParticipantCode>
+  <remarks xmlns="">Direction-Type-MWh|
+50HZT/CEPS-Emergency delivery / redispatching-3420|
+50HZT/CEPS-Emergency delivery / redispatching-3420|
+50HZT/CEPS-Emergency delivery / redispatching-3420|
+50HZT/CEPS-Emergency delivery / redispatching-3420|
+50HZT/CEPS-Emergency delivery / redispatching-3420|
+50HZT/CEPS-Emergency delivery / redispatching-3420|
+APG/CEPS-Emergency delivery / redispatching-6865|
+CEPS/PSE-Emergency delivery / redispatching-6865|
+50HZT/CEPS-Emergency delivery / redispatching-3420|
+APG/CEPS-Emergency delivery / redispatching-6865|
+CEPS/PSE-Emergency delivery / redispatching-6865|
+50HZT/CEPS-Emergency delivery / redispatching-3420|
+CEPS/PSE-Emergency delivery / redispatching-6865|
+APG/CEPS-Emergency delivery / redispatching-6865|
+50HZT/CEPS-Emergency delivery / redispatching-3420|
+APG/CEPS-Emergency delivery / redispatching-6865|
+CEPS/PSE-Emergency delivery / redispatching-6865|
+CEPS/PSE-Emergency delivery / redispatching-6865|
+APG/CEPS-Emergency delivery / redispatching-6865|
+50HZT/CEPS-Emergency delivery / redispatching-3420|
+50HZT/CEPS-Emergency delivery / redispatching-3420|
+</remarks>
+</root></EmergencyExchangeACERResult></EmergencyExchangeACERResponse></soap:Body></soap:Envelope>
